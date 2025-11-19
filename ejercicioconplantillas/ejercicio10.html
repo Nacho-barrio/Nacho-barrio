@@ -210,6 +210,53 @@
       to { transform: scale(1); opacity: 1; }
     }
 
+    /* --- Slider de Sobre mí --- */
+    .slider {
+      position: relative;
+      max-width: 600px;
+      margin: 30px auto 0;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slides img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .slider button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      border: none;
+      color: white;
+      font-size: 30px;
+      padding: 5px 12px;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 10;
+      transition: background 0.3s;
+    }
+
+    .slider button:hover {
+      background: rgba(0,0,0,0.8);
+    }
+
+    .slider .prev {
+      left: 10px;
+    }
+
+    .slider .next {
+      right: 10px;
+    }
+
     /* --- Portafolio --- */
     #portafolio {
       padding: 90px 20px;
@@ -404,6 +451,18 @@
         En el futuro quiero ser ingeniero, porque me encanta diseñar, crear ideas
         y trabajar en proyectos que solucionen problemas reales.
       </p>
+
+      <!-- Slider de imágenes -->
+      <div class="slider">
+        <div class="slides">
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?crop=entropy&auto=format&fit=crop&w=400&q=80" alt="Familia">
+          <img src="https://images.unsplash.com/photo-1521412644187-c49fa049e84d?crop=entropy&auto=format&fit=crop&w=400&q=80" alt="Fútbol">
+          <img src="https://images.unsplash.com/photo-1494173853739-c21f58b16055?crop=entropy&auto=format&fit=crop&w=400&q=80" alt="Creatividad">
+        </div>
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+      </div>
+
       <div class="habilidades">
         <span class="skill">Trabajo en equipo</span>
         <span class="skill">Creatividad</span>
@@ -413,6 +472,7 @@
     </div>
   </section>
 
+  <!-- PORTAFOLIO -->
  <section id="portafolio">
     <h2>Mis Proyectos</h2>
     <div class="proyectos">
@@ -467,12 +527,18 @@
   <footer>
     © 2025 Nacho Sánchez García | Todos los derechos reservados.  
     <div class="social-icons">
-      <a href="https://instagram.com/tu_usuario" target="_blank" aria-label="Instagram">
+      <a href="https://instagram.com/naachosanchezzz" target="_blank" aria-label="Instagram">
         <i class="fab fa-instagram"></i>
       </a>
-      <!-- Aquí puedes agregar más redes -->
+      <a href="https://www.tiktok.com/@nachosanchezz" target="_blank" aria-label="TikTok">
+        <i class="fab fa-tiktok"></i>
+      </a>
     </div>
   </footer>
 
-</body>
-</html>
+  <!-- JS Slider -->
+  <script>
+    const slides = document.querySelector('.slides');
+    const images = document.querySelectorAll('.slides img');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector

@@ -1,1 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio - Nacho Sánchez García</title>
+  <!-- Font Awesome para iconos de redes sociales -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512- … "
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+    /* --- Estilos generales --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background-color: #f7f7f7;
+      color: #222;
+    }
+
+    header {
+      width: 100%;
+      padding: 20px 40px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      animation: fadeIn 1s ease;
+    }
+
+    header h1 {
+      color: #fff;
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: #fff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    nav a::after {
+      content: '';
+      height: 2px;
+      width: 0;
+      background: #5ec4ff;
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      transition: width 0.3s;
+    }
+
+    nav a:hover {
+      color: #5ec4ff;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- Sección Inicio --- */
+    #inicio {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1507537297725-24a1c029d3ca') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      color: white;
+      padding: 40px;
+      animation: bgZoom 20s infinite alternate;
+    }
+
+    @keyframes bgZoom {
+      0% { background-size: 100%; }
+      100% { background-size: 110%; }
+    }
+
+    #inicio h2 {
+      font-size: 50px;
+      text-shadow: 2px 2px 8px #000;
+      animation: slideInLeft 1.5s ease;
+    }
+
+    #inicio p {
+      margin: 15px 0;
+      font-size: 22px;
+      text-shadow: 2px 2px 6px #000;
+      animation: fadeIn 2s ease 1s;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 25px;
+      background: linear-gradient(45deg, #00aaff, #0055cc);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.3);
+      transform: skewX(-20deg);
+      transition: left 0.5s;
+    }
+
+    .btn:hover::before {
+      left: 200%;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes slideInLeft {
+      from { transform: translateX(-100px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    /* --- Sobre mí --- */
+    #sobre-mi {
+      padding: 90px 20px;
+      background: #fff;
+      text-align: center;
+    }
+
+    #sobre-mi h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .sobre-mi-contenido {
+      max-width: 900px;
+      margin: auto;
+      animation: fadeIn 1s ease;
+    }
+
+    .sobre-mi-contenido img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 4px solid #00aaff;
+      transition: transform 0.5s;
+    }
+
+    .sobre-mi-contenido img:hover {
+      transform: scale(1.1);
+    }
+
+    .habilidades {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .skill {
+      padding: 10px 20px;
+      background: #00aaff;
+      color: white;
+      border-radius: 20px;
+      font-weight: bold;
+      opacity: 0;
+      animation: popIn 0.8s forwards;
+    }
+
+    .skill:nth-child(1) { animation-delay: 0.2s; }
+    .skill:nth-child(2) { animation-delay: 0.4s; }
+    .skill:nth-child(3) { animation-delay: 0.6s; }
+    .skill:nth-child(4) { animation-delay: 0.8s; }
+
+    @keyframes popIn {
+      from { transform: scale(0); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    /* --- Portafolio --- */
+    #portafolio {
+      padding: 90px 20px;
+      background: #eef7ff;
+      text-align: center;
+    }
+
+    #portafolio h2 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      animation: fadeIn 1s ease;
+    }
+
+    .proyectos {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      opacity: 0;
+      animation: cardFadeIn 1s forwards;
+    }
+
+    .tarjeta:nth-child(1) { animation-delay: 0.3s; }
+    .tarjeta:nth-child(2) { animation-delay: 0.5s; }
+    .tarjeta:nth-child(3) { animation-delay: 0.7s; }
+    .tarjeta:nth-child(4) { animation-delay: 0.9s; }
+
+    .tarjeta:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
+
+    @keyframes cardFadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .tarjeta img {
+      width: 100%;
+      border-radius: 10px;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .tarjeta h3 {
+      margin: 10px 0;
+      color: #0055cc;
+    }
+
+    .tarjeta p {
+      font-size: 14px;
+      color: #444;
+    }
+
+    /* --- Contacto --- */
+    #contacto {
+      padding: 90px 20px;
+      background: #fff;
+      text-align: center;
+    }
+
+    form {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      animation: fadeIn 1s ease;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border: 1px solid #aaa;
+      border-radius: 6px;
+      width: 100%;
+      font-size: 16px;
+      transition: border 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #00aaff;
+      outline: none;
+    }
+
+    button {
+      padding: 12px;
+      border: none;
+      background: linear-gradient(45deg, #00aaff, #0055cc);
+      color: white;
+      font-size: 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s;
+    }
+
+    button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.3);
+      transform: skewX(-20deg);
+      transition: left 0.5s;
+    }
+
+    button:hover::before {
+      left: 200%;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    /* --- Footer --- */
+    footer {
+      padding: 20px;
+      text-align: center;
+      background: #222;
+      color: white;
+      margin-top: 40px;
+    }
+
+    .social-icons {
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      color: white;
+      margin: 0 10px;
+      font-size: 24px;
+      display: inline-block;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #5ec4ff;
+      transform: scale(1.2);
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1>Nacho Sánchez</h1>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#portafolio">Portafolio</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- INICIO -->
+  <section id="inicio">
+    <div>
+      <h2>Bienvenido a mi Portafolio</h2>
+      <p>Jugador del FC Cartagena | Futuro ingeniero | Creativo y apasionado</p>
+      <a class="btn" href="#portafolio">Ver Portafolio</a>
+    </div>
+  </section>
+
+  <!-- SOBRE MÍ -->
+  <section id="sobre-mi">
+    <h2>Sobre mí</h2>
+    <div class="sobre-mi-contenido">
+      <img src="https://via.placeholder.com/160" alt="Foto de Nacho">
+      <p>
+        Hola, soy <strong>Nacho Sánchez García</strong>.  
+        Me encanta pasar tiempo con mi familia y soy jugador del FC Cartagena.  
+        Me considero una persona sociable, empática y humilde.  
+        En el futuro quiero ser ingeniero, porque me encanta diseñar, crear ideas
+        y trabajar en proyectos que solucionen problemas reales.
+      </p>
+      <div class="habilidades">
+        <span class="skill">Trabajo en equipo</span>
+        <span class="skill">Creatividad</span>
+        <span class="skill">Disciplina deportiva</span>
+        <span class="skill">Resolución de problemas</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTAFOLIO -->
+  <section id="portafolio">
+    <h2>Mis Proyectos</h2>
+    <div class="proyectos">
+      <div class="tarjeta">
+        <img src="https://images.unsplash.com/photo-1521412644187-c49fa049e84d?crop=entropy&auto=format&fit=crop&w=400&q=80" alt="Proyecto futbol">
+        <h3>Proyecto Fútbol</h3>
+        <p>Un mockup para una app de gestión deportiva para jugadores de fútbol.</p>
+        <a class="btn" href="#">Ver más</a>
+      </div>
+      <div class="tarjeta">
+        <img src="https://images.unsplash.com/photo-1537432376769-00a7a8eb43fa?crop=entropy&auto=format&fit=crop&w=400&q=80" alt="Proyecto ingeniería">
+        <h3>Proyecto Ingeniería</h3>
+        <p>Diseño conceptual de sistema de ideas para proyectos de ingeniería.</p>
+        <a class="btn" href="#">Ver más</a>
+      </div>
+      <div class="tarjeta">
+        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?crop=entropy&auto=format&fit=crop&w=400&q=80" alt="Proyecto familia">
+        <h3>Proyecto Familiar</h3>
+        <p>Una galería fotográfica que refleja mis valores familiares.</p>
+        <a class="btn" href="#">Ver más</a>
+      </div>
+      <div class="tarjeta">
+        <img src="https://images.unsplash.com/photo-1494173853739-c21f58b16055?crop=entropy&auto=format&fit=crop&w=400&q=80" alt="Proyecto creatividad">
+        <h3>Proyecto Creativo</h3>
+        <p>Diseño de branding para ideas nuevas y creativas.</p>
+        <a class="btn" href="#">Ver más</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <form>
+      <input type="text" placeholder="Tu nombre" required>
+      <input type="email" placeholder="Tu correo" required>
+      <textarea rows="5" placeholder="Tu mensaje" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Nacho Sánchez García | Todos los derechos reservados.  
+    <div class="social-icons">
+      <a href="https://instagram.com/tu_usuario" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <!-- Aquí puedes agregar más redes -->
+    </div>
+  </footer>
+
+</body>
+</html>
 
